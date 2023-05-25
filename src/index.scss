@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    list-style: none;
+}
+
+h1 {
+    font-size: 40px;
+    font-family: monospace;
+}
+
+ul.nav-links > li {
+    display: flex;
+    list-style: none;
+    align-content: right;
+    flex-direction: row-reverse;
+}
+
+span > i {
+    font-size: 80px;
+    justify-content: left;
+}
+
+ul.nav-links i {
+    font-size: 50px;
+}

@@ -1,5 +1,6 @@
 import MovingObject from "./moving_object";
 import Rider from "./rider";
+import Obstacle from "./obstacle";
 
 document.addEventListener("DOMContentLoaded", () => {
     const canvasEl = document.getElementById("game-canvas");
@@ -13,4 +14,5 @@ document.addEventListener("DOMContentLoaded", () => {
     window.ctx = ctx;
     window.MovingObject = MovingObject;
     window.Rider = Rider;
+    window.Obstacle = Obstacle;
 });

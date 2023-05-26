@@ -68,6 +68,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tre
 
 eval("__webpack_require__.r(__webpack_exports__);\nclass Tree {\n  // 450, 1050\n  static RADIUS = 100;\n  static COLOR = \"green\";\n  constructor(options) {\n    const {\n      pos,\n      radius,\n      color\n    } = options;\n    this.pos = options.pos;\n    this.radius = Tree.RADIUS;\n    this.color = Tree.COLOR;\n  }\n  drawTree(ctx) {\n    ctx.beginPath();\n    ctx.arc(this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI);\n    ctx.fillStyle = this.color;\n    ctx.fill();\n    // ctx.strokeStyle = this.color;\n    // ctx.stroke();\n  }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Tree);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvdHJlZS5qcy5qcyIsIm1hcHBpbmdzIjoiO0FBQUEsTUFBTUEsSUFBSSxDQUFDO0VBQ1A7RUFDQSxPQUFPQyxNQUFNLEdBQUcsR0FBRztFQUNuQixPQUFPQyxLQUFLLEdBQUcsT0FBTztFQUV0QkMsV0FBV0EsQ0FBQ0MsT0FBTyxFQUFFO0lBQ2pCLE1BQU07TUFBQ0MsR0FBRztNQUFFQyxNQUFNO01BQUVDO0lBQUssQ0FBQyxHQUFHSCxPQUFPO0lBRXBDLElBQUksQ0FBQ0MsR0FBRyxHQUFHRCxPQUFPLENBQUNDLEdBQUc7SUFDdEIsSUFBSSxDQUFDQyxNQUFNLEdBQUdOLElBQUksQ0FBQ0MsTUFBTTtJQUN6QixJQUFJLENBQUNNLEtBQUssR0FBR1AsSUFBSSxDQUFDRSxLQUFLO0VBQzNCO0VBRUFNLFFBQVFBLENBQUNDLEdBQUcsRUFBRTtJQUNWQSxHQUFHLENBQUNDLFNBQVMsQ0FBQyxDQUFDO0lBQ2ZELEdBQUcsQ0FBQ0UsR0FBRyxDQUFDLElBQUksQ0FBQ04sR0FBRyxDQUFDLENBQUMsQ0FBQyxFQUFFLElBQUksQ0FBQ0EsR0FBRyxDQUFDLENBQUMsQ0FBQyxFQUFFLElBQUksQ0FBQ0MsTUFBTSxFQUFFLENBQUMsRUFBRSxDQUFDLEdBQUdNLElBQUksQ0FBQ0MsRUFBRSxDQUFDO0lBQzlESixHQUFHLENBQUNLLFNBQVMsR0FBRyxJQUFJLENBQUNQLEtBQUs7SUFDMUJFLEdBQUcsQ0FBQ00sSUFBSSxDQUFDLENBQUM7SUFDVjtJQUNBO0VBQ0o7QUFDSjs7QUFFQSwrREFBZWYsSUFBSSIsInNvdXJjZXMiOlsid2VicGFjazovL2phdmFzY3JpcHRfcHJvamVjdC8uL3NyYy90cmVlLmpzPzk3NGUiXSwic291cmNlc0NvbnRlbnQiOlsiY2xhc3MgVHJlZSB7XG4gICAgLy8gNDUwLCAxMDUwXG4gICAgc3RhdGljIFJBRElVUyA9IDEwMDtcbiAgICBzdGF0aWMgQ09MT1IgPSBcImdyZWVuXCI7XG5cbiAgICBjb25zdHJ1Y3RvcihvcHRpb25zKSB7XG4gICAgICAgIGNvbnN0IHtwb3MsIHJhZGl1cywgY29sb3J9ID0gb3B0aW9ucztcblxuICAgICAgICB0aGlzLnBvcyA9IG9wdGlvbnMucG9zO1xuICAgICAgICB0aGlzLnJhZGl1cyA9IFRyZWUuUkFESVVTO1xuICAgICAgICB0aGlzLmNvbG9yID0gVHJlZS5DT0xPUjtcbiAgICB9XG5cbiAgICBkcmF3VHJlZShjdHgpIHtcbiAgICAgICAgY3R4LmJlZ2luUGF0aCgpO1xuICAgICAgICBjdHguYXJjKHRoaXMucG9zWzBdLCB0aGlzLnBvc1sxXSwgdGhpcy5yYWRpdXMsIDAsIDIgKiBNYXRoLlBJKTtcbiAgICAgICAgY3R4LmZpbGxTdHlsZSA9IHRoaXMuY29sb3I7XG4gICAgICAgIGN0eC5maWxsKCk7XG4gICAgICAgIC8vIGN0eC5zdHJva2VTdHlsZSA9IHRoaXMuY29sb3I7XG4gICAgICAgIC8vIGN0eC5zdHJva2UoKTtcbiAgICB9XG59XG5cbmV4cG9ydCBkZWZhdWx0IFRyZWU7XG4iXSwibmFtZXMiOlsiVHJlZSIsIlJBRElVUyIsIkNPTE9SIiwiY29uc3RydWN0b3IiLCJvcHRpb25zIiwicG9zIiwicmFkaXVzIiwiY29sb3IiLCJkcmF3VHJlZSIsImN0eCIsImJlZ2luUGF0aCIsImFyYyIsIk1hdGgiLCJQSSIsImZpbGxTdHlsZSIsImZpbGwiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/tree.js\n");
 
+/***/ }),
+
+/***/ "./src/index.scss":
+/*!************************!*\
+  !*** ./src/index.scss ***!
+  \************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvaW5kZXguc2Nzcy5qcyIsIm1hcHBpbmdzIjoiO0FBQUEiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9qYXZhc2NyaXB0X3Byb2plY3QvLi9zcmMvaW5kZXguc2Nzcz85NzQ1Il0sInNvdXJjZXNDb250ZW50IjpbIi8vIGV4dHJhY3RlZCBieSBtaW5pLWNzcy1leHRyYWN0LXBsdWdpblxuZXhwb3J0IHt9OyJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/index.scss\n");
+
 /***/ })
 
 /******/ 	});
@@ -113,7 +123,8 @@ eval("__webpack_require__.r(__webpack_exports__);\nclass Tree {\n  // 450, 1050\
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval-source-map devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
+/******/ 	__webpack_require__("./src/index.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.scss");
 /******/ 	
 /******/ })()
 ;

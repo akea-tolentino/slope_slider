@@ -43,7 +43,7 @@ class Game {
     }
 }
 
-window.addEventListener("click", this.runGame.bind(this));
+document.getElementById("run-game").addEventListener("click", this.runGame.bind(this));
 
 
 window.addEventListener("keydown", (e) => {
@@ -53,6 +53,7 @@ window.addEventListener("keydown", (e) => {
     if (e.key === " ") player.jump();
 });
 
+export default Game;
 
 //add button with an addEventListener, which would invoke setupGame
 //button will have a id, that "click" refers to

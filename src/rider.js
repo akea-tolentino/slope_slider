@@ -16,4 +16,5 @@ class Rider extends MovingObject {
 
 }
 
+
 export default Rider;

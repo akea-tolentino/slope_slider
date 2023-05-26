@@ -36,8 +36,9 @@ class MovingObject {
     }
 
     jump() {
-        this.radius = 75;
+        this.radius = 95;
         this.draw(ctx);
+        this.radius = 50;
     }
 }
 

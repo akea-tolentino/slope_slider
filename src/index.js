@@ -1,5 +1,5 @@
-const MovingObject = require("./moving_object");
-const Rider = require("./rider.js");
+import MovingObject from "./moving_object";
+import Rider from "./rider";
 
 document.addEventListener("DOMContentLoaded", () => {
     const canvasEl = document.getElementById("game-canvas");

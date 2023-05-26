@@ -7,7 +7,7 @@ class Rider extends MovingObject {
     constructor(options) {
         super(options);
         this.pos = options.pos;
-        this.vel = 0;
+        this.vel = options.vel;
         this.radius = Rider.RADIUS;
         this.color = Rider.COLOR;
     }

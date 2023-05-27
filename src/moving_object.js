@@ -7,38 +7,40 @@ class MovingObject {
         this.radius = radius;
         this.color = color;
     }
+
     draw(ctx) {
         ctx.beginPath();
-        ctx.arc(this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI);
+        ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI);
         ctx.fillStyle = this.color;
         ctx.fill();
-        // ctx.strokeStyle = this.color;
-        // ctx.stroke();
     }
 
+
     move() {
-        this.pos[0] += this.vel[0];
-        this.pos[1] += this.vel[1];
+        this.draw(ctx);
+        this.pos.x += this.vel.x;
+        this.pos.y += this.vel.y;
+
+        if (this.pos.y + this.radius.y + this.vel.y >= 500){
+            this.velocity.y = 0;}
     }
 
     moveLeft() {
-        this.vel = [-600, 0];
-        this.move();
-        this.draw(ctx);
-        this.vel = [0, 0];
+        this.vel = {
+            x: -200,
+            y: 0
+        }
     }
 
     moveRight() {
-        this.vel = [600, 0];
-        this.move();
-        this.draw(ctx);
-        this.vel = [0, 0];
+        this.vel = {
+            x: 200,
+            y: 0
+        }
     }
 
     jump() {
-        this.radius = 95;
-        this.draw(ctx);
-        this.radius = 50;
+        this.radius = 28;
     }
 }
 

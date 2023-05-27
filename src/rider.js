@@ -1,15 +1,19 @@
 import MovingObject from "./moving_object";
 
 class Rider extends MovingObject {
-    static RADIUS = 50;
+    static RADIUS = 25;
     static COLOR = "black";
 
     constructor(options) {
         super(options);
-        this.pos = [750, 1500];
-        //rider velocity will change to [600, 0] to move right
-        //rider velocity will change to [-600, 0] to move left
-        this.vel = [0, 0];
+        this.pos = {
+            x: 250,
+            y: 500};
+
+        this.vel = {
+            x: 0,
+            y: 0};
+
         this.radius = Rider.RADIUS;
         this.color = Rider.COLOR;
     }

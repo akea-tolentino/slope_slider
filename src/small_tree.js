@@ -1,8 +1,7 @@
 import Tree from "./tree";
 
 class SmallTree extends Tree {
-    // 0, 1500
-    static RADIUS = 30;
+    static RADIUS = 10;
     static COLOR = "green";
 
     constructor(options) {

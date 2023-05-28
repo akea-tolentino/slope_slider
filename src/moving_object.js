@@ -27,20 +27,20 @@ class MovingObject {
 
     moveLeft() {
         this.vel = {
-            x: -200,
+            x: -175,
             y: 0
         }
     }
 
     moveRight() {
         this.vel = {
-            x: 200,
+            x: 175,
             y: 0
         }
     }
 
     jump() {
-        this.radius = 28;
+        this.radius = 30;
     }
 }
 

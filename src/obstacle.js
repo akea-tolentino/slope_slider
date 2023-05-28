@@ -1,11 +1,11 @@
 import MovingObject from "./moving_object";
 
 class Obstacle extends MovingObject {
-    static POSITIONS= [[50, 0], [250, 0], [450, 0]];
+    static POSITIONS= [[75, 0], [250, 0], [425, 0]];
     static VELOCITY = {
         x: 0,
-        y: 8};
-    static RADIUS = 25;
+        y: 4};
+    static RADIUS = 10;
     static COLOR = "brown";
 
     constructor(options) {

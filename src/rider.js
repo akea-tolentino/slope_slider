@@ -1,7 +1,7 @@
 import MovingObject from "./moving_object";
 
 class Rider extends MovingObject {
-    static RADIUS = 25;
+    static RADIUS = 15;
     static COLOR = "black";
 
     constructor(options) {

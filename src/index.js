@@ -18,24 +18,24 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.getElementById("run-game").addEventListener("click", ()=> {
-    const trees = [];
-    for (let i = 150; i < canvasEl.width; i+=(200)) {
-        for (let j = 0; j <= canvasEl.height; j+=(100)) {
-            trees.push(
-                new Tree({pos:[i, j]})
-            )}}
-    trees.forEach((tree) => tree.drawTree(ctx));
+    // const trees = [];
+    // for (let i = 150; i < canvasEl.width; i+=(200)) {
+    //     for (let j = 0; j <= canvasEl.height; j+=(100)) {
+    //         trees.push(
+    //             new Tree({pos:[i, j]})
+    //         )}}
+    // trees.forEach((tree) => tree.drawTree(ctx));
     
-    const smallTrees = [];
-        for (let j = 0; j <= canvasEl.height; j+=(100)) {
-            smallTrees.push(
-                new SmallTree({pos:[0, j]})
-            )}
-        for (let j = 0; j <= canvasEl.height; j+=(100)) {
-            smallTrees.push(
-                new SmallTree({pos:[500, j]})
-            )}
-    smallTrees.forEach((tree) => tree.drawTree(ctx));
+    // const smallTrees = [];
+    //     for (let j = 0; j <= canvasEl.height; j+=(100)) {
+    //         smallTrees.push(
+    //             new SmallTree({pos:[0, j]})
+    //         )}
+    //     for (let j = 0; j <= canvasEl.height; j+=(100)) {
+    //         smallTrees.push(
+    //             new SmallTree({pos:[500, j]})
+    //         )}
+    // smallTrees.forEach((tree) => tree.drawTree(ctx));
     
     window.MovingObject = MovingObject;
     window.Rider = Rider;
@@ -44,24 +44,91 @@ document.getElementById("run-game").addEventListener("click", ()=> {
     window.SmallTree = SmallTree;
     window.player = new Rider({});
     window.logs = [];
-
-    function animate() {
-        window.requestAnimationFrame(animate);
-        logs.push(new Obstacle({}));
-        ctx.fillStyle = "whitesmoke"
-        ctx.fillRect(0, 0, canvasEl.width, canvasEl.height);
-        logs.forEach((log) => log.move(ctx));
-        player.move();
-    }
+    
     
     animate();  
 })
 
-window.addEventListener("keydown", (e) => {
+function animate() {
+    window.requestAnimationFrame(animate);
+    // need to find a way to get this to periodically spawn new obstacles throughout the animation
+    // setInterval(logs.push(new Obstacle({})), 1000);
+    ctx.fillStyle = "whitesmoke"
+    ctx.fillRect(0, 0, canvasEl.width, canvasEl.height);
 
-    if (e.key === "a") player.moveLeft();
-    if (e.key === "d") player.moveRight();
-    if (e.key === " ") player.jump();
+    //populate trees
+    const trees = [];
+    for (let i = 150; i < canvasEl.width; i+=(200)) {
+        for (let j = 0; j <= canvasEl.height - player.radius; j+=(75)) {
+            trees.push(
+                new Tree({pos:[i, j]})
+            )}}
+    trees.forEach((tree) => tree.drawTree(ctx));
+    
+    //populate small trees
+    const smallTrees = [];
+        for (let j = 0; j <= canvasEl.height; j+=(100)) {
+            smallTrees.push(
+                new SmallTree({pos:[0 + SmallTree.RADIUS, j]})
+            )}
+        for (let j = 0; j <= canvasEl.height; j+=(100)) {
+            smallTrees.push(
+                new SmallTree({pos:[500 - SmallTree.RADIUS, j]})
+            )}
+    smallTrees.forEach((tree) => tree.drawTree(ctx));
+
+    // logs.forEach((log) => log.move(ctx));
+    for (let i = 0; i < logs.length; i++) {
+        const log = logs[i];
+        if (log.radius + log.vel.y >= canvasEl.height) {
+            logs.splice(log, 1);
+        } else {
+            log.move(ctx);
+        }
+    }
+    
+    player.move();
+
+    if (keys.a.pressed && player.pos.x - player.radius > 0) {
+        player.moveLeft();
+        keys.a.pressed = false;
+    } else if (keys.d.pressed && player.pos.x + player.radius < canvasEl.width) {
+        player.moveRight();
+        keys.d.pressed = false;
+    } else if (keys.s.pressed) {
+        player.jump();
+    } else { player.vel.x = 0; player.radius = Rider.RADIUS }
+
+}
+//keys map to select what keys to watch for
+const keys = {
+    a: {pressed: false},
+    d: {pressed: false},
+    s: {pressed: false}
+}
+window.addEventListener("keypress", ({key}) => {
+    switch (key){
+        case 'a':
+            keys.a.pressed = true;
+            break;
+        case 'd': 
+            keys.d.pressed = true;
+            break;
+    }
 });
 
+window.addEventListener("keydown", ({key}) => {
+    switch (key){
+        case 's':
+            keys.s.pressed = true;
+            break;
+    }
+});
 
+window.addEventListener("keyup", ({key}) => {
+    switch (key){
+        case 's':
+            keys.s.pressed = false;
+            break;
+    }
+});

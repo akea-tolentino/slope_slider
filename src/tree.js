@@ -1,5 +1,5 @@
 class Tree {
-    static RADIUS = 33;
+    static RADIUS = 30;
     static COLOR = "green";
 
     constructor(options) {

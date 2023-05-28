@@ -18,24 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.getElementById("run-game").addEventListener("click", ()=> {
-    // const trees = [];
-    // for (let i = 150; i < canvasEl.width; i+=(200)) {
-    //     for (let j = 0; j <= canvasEl.height; j+=(100)) {
-    //         trees.push(
-    //             new Tree({pos:[i, j]})
-    //         )}}
-    // trees.forEach((tree) => tree.drawTree(ctx));
-    
-    // const smallTrees = [];
-    //     for (let j = 0; j <= canvasEl.height; j+=(100)) {
-    //         smallTrees.push(
-    //             new SmallTree({pos:[0, j]})
-    //         )}
-    //     for (let j = 0; j <= canvasEl.height; j+=(100)) {
-    //         smallTrees.push(
-    //             new SmallTree({pos:[500, j]})
-    //         )}
-    // smallTrees.forEach((tree) => tree.drawTree(ctx));
     
     window.MovingObject = MovingObject;
     window.Rider = Rider;
@@ -44,15 +26,24 @@ document.getElementById("run-game").addEventListener("click", ()=> {
     window.SmallTree = SmallTree;
     window.player = new Rider({});
     window.logs = [];
+    // logs.push(new Obstacle({}));
+    // setInterval( logs.push(new Obstacle({})), 1000);
+    const count = 0;
     
     
-    animate();  
+    animate(count);  
 })
 
-function animate() {
+function animate(count) {
     window.requestAnimationFrame(animate);
     // need to find a way to get this to periodically spawn new obstacles throughout the animation
     // setInterval(logs.push(new Obstacle({})), 1000);
+    // logs.push(new Obstacle({}));
+
+    count += 1;
+    if (count % 1 === 0) logs.push(new Obstacle({}));
+
+
     ctx.fillStyle = "whitesmoke"
     ctx.fillRect(0, 0, canvasEl.width, canvasEl.height);
 

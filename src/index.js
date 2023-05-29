@@ -26,23 +26,17 @@ document.getElementById("run-game").addEventListener("click", ()=> {
     window.SmallTree = SmallTree;
     window.player = new Rider({});
     window.logs = [];
-    // logs.push(new Obstacle({}));
-    // setInterval( logs.push(new Obstacle({})), 1000);
-    const count = 0;
     
-    
-    animate(count);  
+    logs.push(new Obstacle({}))
+    setInterval(() => { 
+        logs.push(new Obstacle({}))}, 1500);
+
+    animate();  
 })
 
-function animate(count) {
+// function animate(count) {
+function animate() {
     window.requestAnimationFrame(animate);
-    // need to find a way to get this to periodically spawn new obstacles throughout the animation
-    // setInterval(logs.push(new Obstacle({})), 1000);
-    // logs.push(new Obstacle({}));
-
-    count += 1;
-    if (count % 1 === 0) logs.push(new Obstacle({}));
-
 
     ctx.fillStyle = "whitesmoke"
     ctx.fillRect(0, 0, canvasEl.width, canvasEl.height);
@@ -68,18 +62,20 @@ function animate(count) {
             )}
     smallTrees.forEach((tree) => tree.drawTree(ctx));
 
-    // logs.forEach((log) => log.move(ctx));
+    //move each obstacle (log)
+    logs.forEach((log) => log.move(ctx));
     for (let i = 0; i < logs.length; i++) {
         const log = logs[i];
         if (log.radius + log.vel.y >= canvasEl.height) {
-            logs.splice(log, 1);
+            const removeIndex = logs.indexOf(log);
+            logs.splice(removeIndex, 1);
         } else {
             log.move(ctx);
         }
     }
     
+    //code block that moves player
     player.move();
-
     if (keys.a.pressed && player.pos.x - player.radius > 0) {
         player.moveLeft();
         keys.a.pressed = false;
@@ -91,12 +87,15 @@ function animate(count) {
     } else { player.vel.x = 0; player.radius = Rider.RADIUS }
 
 }
+
 //keys map to select what keys to watch for
 const keys = {
     a: {pressed: false},
     d: {pressed: false},
     s: {pressed: false}
 }
+
+//event listener for keypress of the left/right keys
 window.addEventListener("keypress", ({key}) => {
     switch (key){
         case 'a':
@@ -104,22 +103,19 @@ window.addEventListener("keypress", ({key}) => {
             break;
         case 'd': 
             keys.d.pressed = true;
-            break;
-    }
+            break;}
 });
 
+//event listener for keydown and keyup of jump key
 window.addEventListener("keydown", ({key}) => {
     switch (key){
         case 's':
             keys.s.pressed = true;
-            break;
-    }
+            break;}
 });
-
 window.addEventListener("keyup", ({key}) => {
     switch (key){
         case 's':
             keys.s.pressed = false;
-            break;
-    }
+            break;}
 });

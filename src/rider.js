@@ -8,7 +8,7 @@ class Rider extends MovingObject {
         super(options);
         this.pos = {
             x: 250,
-            y: 500};
+            y: 500 - Rider.RADIUS};
 
         this.vel = {
             x: 0,

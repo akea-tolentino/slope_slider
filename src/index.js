@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.getElementById("run-game").addEventListener("click", ()=> {
+
+    window.gameOn = true;
     
     window.MovingObject = MovingObject;
     window.Rider = Rider;
@@ -27,16 +29,15 @@ document.getElementById("run-game").addEventListener("click", ()=> {
     window.player = new Rider({});
     window.logs = [];
     
-    logs.push(new Obstacle({}))
     setInterval(() => { 
-        logs.push(new Obstacle({}))}, 1500);
+        logs.push(new Obstacle({}), new Obstacle({}), new Obstacle({}))}, 1000);
 
     animate();  
 })
 
-// function animate(count) {
+//function that runs the "animation" of the game, printing a new state for every frame
 function animate() {
-    window.requestAnimationFrame(animate);
+    const animationReq = window.requestAnimationFrame(animate);
 
     ctx.fillStyle = "whitesmoke"
     ctx.fillRect(0, 0, canvasEl.width, canvasEl.height);
@@ -63,12 +64,13 @@ function animate() {
     smallTrees.forEach((tree) => tree.drawTree(ctx));
 
     //move each obstacle (log)
-    logs.forEach((log) => log.move(ctx));
     for (let i = 0; i < logs.length; i++) {
         const log = logs[i];
-        if (log.radius + log.vel.y >= canvasEl.height) {
-            const removeIndex = logs.indexOf(log);
-            logs.splice(removeIndex, 1);
+        console.log(log.pos, 'pos');
+        if (log.radius + log.pos.y >= canvasEl.height) {
+            logs.filter((log) => {
+                log.pos.y - log.radius < canvasEl.height;
+            })
         } else {
             log.move(ctx);
         }
@@ -86,7 +88,14 @@ function animate() {
         player.jump();
     } else { player.vel.x = 0; player.radius = Rider.RADIUS }
 
-}
+    // logic that will check for collisions to end the game
+    logs.forEach((log) => {
+        if ((log.pos.x === player.pos.x) && ((log.pos.y) === (player.pos.y))) {
+            gameOn = false;
+            window.cancelAnimationFrame(animationReq);
+    }})
+
+}; //end of animate
 
 //keys map to select what keys to watch for
 const keys = {

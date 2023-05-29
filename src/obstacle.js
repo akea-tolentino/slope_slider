@@ -4,7 +4,7 @@ class Obstacle extends MovingObject {
     static POSITIONS= [[75, 0], [250, 0], [425, 0]];
     static VELOCITY = {
         x: 0,
-        y: 4};
+        y: 5};
     static RADIUS = 10;
     static COLOR = "brown";
 

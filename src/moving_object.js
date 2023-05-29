@@ -15,7 +15,6 @@ class MovingObject {
         ctx.fill();
     }
 
-
     move() {
         this.draw(ctx);
         this.pos.x += this.vel.x;

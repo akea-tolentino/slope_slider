@@ -76,20 +76,22 @@ function animate() {
         }
     }
     
-    //code block that moves player
-    player.move();
-    if (keys.a.pressed && player.pos.x - player.radius > 0) {
-        player.moveLeft();
-        keys.a.pressed = false;
-    } else if (keys.d.pressed && player.pos.x + player.radius < canvasEl.width) {
-        player.moveRight();
-        keys.d.pressed = false;
-    } else if (keys.s.pressed) {
-        player.jump();
-    } else { player.vel.x = 0; player.radius = Rider.RADIUS }
+    // logic that will move player 
+    logs.forEach((log, i) => {
+        player.move();
+        if (keys.a.pressed && player.pos.x - player.radius > 0) {
+            player.moveLeft();
+            keys.a.pressed = false;
+        } else if (keys.d.pressed && player.pos.x + player.radius < canvasEl.width) {
+            player.moveRight();
+            keys.d.pressed = false;
 
-    // logic that will check for collisions to end the game
-    logs.forEach((log) => {
+            //logic that will make player "jump" and end game if collision occurs
+        } else if (keys.s.pressed && (Math.hypot(log.pos.x - player.pos.x, log.pos.y - player.pos.y) < log.radius + player.radius + 25)) {
+            player.jump();
+            logs.splice(logs[i], 1);
+            } else { player.vel.x = 0; player.radius = Rider.RADIUS }
+                
         if ((log.pos.x === player.pos.x) && ((log.pos.y) === (player.pos.y))) {
             gameOn = false;
             window.cancelAnimationFrame(animationReq);

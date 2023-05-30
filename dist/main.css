@@ -1,6 +1,10 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
+* {
+  font-family: monospace;
+}
+
 div.container {
   display: grid;
   grid-template-columns: repeat(3);
@@ -38,7 +42,7 @@ div.controls {
 
 canvas.game-canvas {
   grid-column: 2;
-  grid-row: 3;
+  grid-row: 4;
 }
 
 button#run-game {
@@ -50,6 +54,13 @@ button#run-game {
   height: 45px;
   margin: auto;
   border-radius: 100px;
+}
+
+#score {
+  grid-column: 3;
+  grid-row: 2;
+  font-size: 26px;
+  font-style: oblique;
 }
 
 h1 {
@@ -73,12 +84,26 @@ ul.nav-links i {
   font-size: 50px;
 }
 
-div.controls li {
+div#controls li {
   list-style: disc;
   display: flex;
   font-size: 18px;
   padding: 25px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-weight: 100;
   margin: auto;
+}
+
+div#welcome {
+  display: flex;
+  grid-column: 2;
+  grid-row: 2/3;
+  margin-left: 180px;
+  margin-right: 180px;
+  text-align: center;
+  padding: 30px;
+  font-size: 20px;
+}
+
+.hidden {
+  display: none;
 }

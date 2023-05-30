@@ -18,9 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.getElementById("run-game").addEventListener("click", ()=> {
-
-    window.gameOn = true;
     
+    const hiddenEls = document.getElementsByClassName("hidden");
+    for (let i = 0; i < hiddenEls.length; i++) {
+        hiddenEls[i].removeAttribute("class");
+    }
+
+    const welcome = document.getElementsByClassName("welcome")[0];
+    welcome.setAttribute("class", "hidden");
+
     window.MovingObject = MovingObject;
     window.Rider = Rider;
     window.Obstacle = Obstacle;
@@ -28,6 +34,8 @@ document.getElementById("run-game").addEventListener("click", ()=> {
     window.SmallTree = SmallTree;
     window.player = new Rider({});
     window.logs = [];
+    window.start = Date.now();
+    window.jumpCount = 0;
     
     setInterval(() => { 
         logs.push(new Obstacle({}), new Obstacle({}), new Obstacle({}))}, 1000);
@@ -89,11 +97,14 @@ function animate() {
             //logic that will make player "jump" and end game if collision occurs
         } else if (keys.s.pressed && (Math.hypot(log.pos.x - player.pos.x, log.pos.y - player.pos.y) < log.radius + player.radius + 25)) {
             player.jump();
+            window.jumpCount++;
+            document.getElementById("score").textContent = "Score " + window.jumpCount;
             logs.splice(logs[i], 1);
             } else { player.vel.x = 0; player.radius = Rider.RADIUS }
                 
         if ((log.pos.x === player.pos.x) && ((log.pos.y) === (player.pos.y))) {
-            gameOn = false;
+            const endTime = Date.now() - window.start;
+            document.getElementById("score").textContent= "Score " + Math.floor(endTime * window.jumpCount / 1000);
             window.cancelAnimationFrame(animationReq);
     }})
 

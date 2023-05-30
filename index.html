@@ -22,15 +22,17 @@
                     <li><a href="https://www.linkedin.com/in/jamesbradley-tolentino-813555229/"><i class="fa-brands fa-linkedin" style="color: #102d60;"></i></a></li>
                 </ul>
         </div>
-        <div class="controls">
+        <div class="hidden" id="controls">
             <ul>
                 <li>Press "A" to move left!</li>
                 <li>Press "D" to move right!</li>
                 <li>Press "S" to jump!</li>
             </ul>
         </div>
-    <canvas id="game-canvas"></canvas>
-    <button id="run-game">PLAY</button>
+        <canvas class="hidden" id="game-canvas"></canvas>
+        <div class="hidden" id="score">Score: 0</div>
+        <div id="welcome"><p>Welcome to Slope Slider. Are you ready to hit the slopes? <br> Careful! There are obstacles in the way! <br> Avoid them by using the: "A" key to move left, <br> "D" key to move right, or the "S" key to jump over them. <br> Be warned, a jump has to be timed right in order to succeed. <br> Your score will be calculated based on how many successful jumps you've completed and how long the ride was. <br> When you're ready to start, hit the play button above. <br> See you at the end of your ride!</div></p>
+        <button id="run-game">PLAY</button>
     </div>
 </body>
 </html>

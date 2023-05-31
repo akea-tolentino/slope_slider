@@ -105,7 +105,7 @@ function animate() {
                 
         if ((log.pos.x === player.pos.x) && ((log.pos.y) === (player.pos.y))) {
             const endTime = Date.now() - window.start;
-            document.getElementById("score").textContent= "Score " + Math.floor(endTime * window.jumpCount / 1000);
+            document.getElementById("score").textContent= "GAME OVER! Your score is: " + Math.floor(endTime * window.jumpCount / 1000);
             window.cancelAnimationFrame(animationReq);
     }})
 

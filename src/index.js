@@ -19,13 +19,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("run-game").addEventListener("click", ()=> {
     
-    const hiddenEls = document.getElementsByClassName("hidden");
-    for (let i = 0; i < hiddenEls.length; i++) {
-        hiddenEls[i].removeAttribute("class");
-    }
+    //grab elements for score, controls, and canvas and remove class attribute
+    document.getElementById("score").removeAttribute("class");
+    document.getElementById("controls").removeAttribute("class");
+    canvasEl.removeAttribute("class");
 
-    const welcome = document.getElementsByClassName("welcome")[0];
-    welcome.setAttribute("class", "hidden");
+    //grab elements for welcome-paragraph and run button and add class hidden
+    document.getElementById("welcome-paragraph").classList.add("hidden");
+    document.getElementById("run-game").classList.add("hidden");
 
     window.MovingObject = MovingObject;
     window.Rider = Rider;

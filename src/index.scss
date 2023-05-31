@@ -52,6 +52,9 @@ button#run-game {
     margin: auto;
     border-radius: 100px;
 }
+#run-game:hover {
+    background-color: #6b89bd;
+}
 
 #score {
     grid-column: 3;

@@ -88,10 +88,10 @@ function animate() {
     // logic that will move player 
     logs.forEach((log, i) => {
         player.move();
-        if (keys.a.pressed && player.pos.x - player.radius > 0) {
+        if (keys.a.pressed && player.pos.x - player.radius - 60 > 0) {
             player.moveLeft();
             keys.a.pressed = false;
-        } else if (keys.d.pressed && player.pos.x + player.radius < canvasEl.width) {
+        } else if (keys.d.pressed && player.pos.x + player.radius + 60 < canvasEl.width) {
             player.moveRight();
             keys.d.pressed = false;
 
